@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Copy, RefreshCw, Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import PasswordStrengthIndicator from "./PasswordStrengthIndicator";
+import CloudStorageIntegration from "./CloudStorageIntegration";
 
 interface PasswordOptions {
   length: number;
@@ -151,6 +152,18 @@ const PasswordGenerator: React.FC = () => {
 
           {/* Password Strength Indicator */}
           <PasswordStrengthIndicator password={password} />
+        </div>
+
+        <div className="flex flex-wrap gap-2 justify-between">
+          <CloudStorageIntegration password={password} />
+          <Button
+            onClick={handleGeneratePassword}
+            variant="outline"
+            size="default"
+          >
+            <RefreshCw className="h-4 w-4 mr-2" />
+            Gerar Nova
+          </Button>
         </div>
 
         {/* Password Length */}
